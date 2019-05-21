@@ -15,16 +15,27 @@ function queryParams(data: { [key: string]: any }) {
 
 export interface requestConfig {
     url: string,
-    method: 'post' | 'get',
+    method: 'post' | 'get' | 'put' | 'delete',
     data?: object,
 }
 
 
 export async function request<TResult = any>(config: requestConfig): Promise<TResult> {
     try {
+        let url = `${API_HOST}${config.url}`
+        url = config.method === 'get' ? `${url}?${queryParams(config.data)}` : url
+
+        const response = await fetch(url, {
+            method: config.method,
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            }
+        })
+        return response.json() as Promise<TResult>
 
     } catch (error) {
-        throw new ApiError(error);
+        //throw new ApiError(error);
     }
 }
 

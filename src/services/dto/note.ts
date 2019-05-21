@@ -1,4 +1,4 @@
-export default interface INote {
+export default interface Note {
     id: number,
 
     title: string
