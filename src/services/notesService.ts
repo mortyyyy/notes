@@ -7,3 +7,11 @@ export async function getNotes() {
         url: '/notes'
     })
 }
+
+export async function createNote(title: string) {
+    return request<Note>({
+        method: 'post',
+        url: '/notes',
+        data: { title }
+    })
+}

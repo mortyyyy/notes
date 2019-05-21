@@ -1,5 +1,5 @@
 import { observable, action } from 'mobx';
-import { getNotes } from '../services/notesService';
+import { getNotes, createNote } from '../services/notesService';
 
 export default interface Note {
     id: number,
@@ -20,7 +20,18 @@ export class NotesStore {
     public async getNotesList() {
         try {
             this.notes = await getNotes();
-            console.log(this.notes);
+        } catch (e) {
+            console.error(e)
+        }
+    }
+
+    @action.bound
+    public async createNote(title: string) {
+        try {
+            const newNote = await createNote(title);
+            if (newNote) {
+                this.notes = [...this.notes, newNote];
+            }
         } catch (e) {
             console.error(e)
         }

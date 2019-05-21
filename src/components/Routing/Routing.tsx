@@ -9,6 +9,6 @@ export interface IRouting {
 
 export const Routing: React.FC<IRouting> = ({ routes }) => (
     <Switch>
-        {routes.map((props) => <Route {...props} />)}
+        {routes.map((props, index) => <Route {...props} key={index} />)}
     </Switch>
 );

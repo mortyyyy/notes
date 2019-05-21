@@ -1,3 +1,5 @@
 import { NotesList } from './NotesList';
 
-export {NotesList}
+import './note-list.scss';
+
+export { NotesList }
