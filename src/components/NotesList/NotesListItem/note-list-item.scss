@@ -2,6 +2,10 @@
   padding-left: 0 !important;
 }
 
+.note-list-item-title-container {
+    word-break: break-word
+}
+
 .note-list-item-content {
   min-width: 100px;
   border-radius: 5px;
@@ -11,4 +15,5 @@
 
 .edit-note-input {
   width: 100%;
+  font-size:14px !important;
 }

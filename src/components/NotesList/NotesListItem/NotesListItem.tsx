@@ -52,13 +52,13 @@ export class NotesListItem extends React.Component<NotesListItemProps> {
     @autobind
     private renderContent() {
         if (!this.editMode) {
-            return <div onClick={this.startEdit}>
+            return <div className="note-list-item-title-container" onClick={this.startEdit}>
                 {this.props.note.title}
             </div>
         }
         return (<>
             <textarea
-                className="form-control"
+                className="form-control edit-note-input"
                 onBlur={this.finishEdit}
                 onKeyPress={this.textAreaOnInputPress}
                 onChange={this.handleTitleChange}
