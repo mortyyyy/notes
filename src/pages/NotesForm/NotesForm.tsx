@@ -24,6 +24,9 @@ export class NotesForm extends React.Component<NotesFormProps> {
         return (
             <div className='container'>
                 <div className="row justify-content-center">
+                    <h1>Notes</h1>
+                </div>
+                <div className="row justify-content-center">
                     <div className="col-md-7">
                         <AddTextInput onSubmit={this.addNewNote} />
                         <ValidationErrorMessage error={this.props.notesStore.error ? 'commonErrorMessage' : null} />

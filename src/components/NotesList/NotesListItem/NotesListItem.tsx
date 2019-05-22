@@ -13,6 +13,10 @@ export interface NotesListItemProps {
     editNote?: (note: Note) => void
 }
 
+const COLORS = ['pink', 'yellow', 'green', 'blue', 'red', 'pale-yellow']
+
+const getRandomColor = () => COLORS[Math.floor((Math.random() * 10) % 6)];
+
 @observer
 export class NotesListItem extends React.Component<NotesListItemProps> {
 
@@ -52,7 +56,7 @@ export class NotesListItem extends React.Component<NotesListItemProps> {
     @autobind
     private renderContent() {
         if (!this.editMode) {
-            return <div className="note-list-item-title-container" onClick={this.startEdit}>
+            return <div className={`note-list-item-title-container ${getRandomColor()}`} onClick={this.startEdit}>
                 {this.props.note.title}
             </div>
         }
@@ -74,10 +78,7 @@ export class NotesListItem extends React.Component<NotesListItemProps> {
         try {
             this.loading = true;
             await removeNote(id);
-        } catch (e) { }
-        finally {
-            this.loading = false
-        }
+        } catch (e) { console.log(e) }
     }
 
     @autobind

@@ -4,7 +4,8 @@
   top: 5px;
   width: 10px;
   height: 10px;
-  opacity: 0.3;
+  opacity: 0.6;
+  z-index: 1;
   &:hover {
     opacity: 1;
   }
