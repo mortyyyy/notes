@@ -5,6 +5,8 @@ import { NotesListItem } from './NotesListItem';
 export interface NotesListProps {
     notes: Note[],
     removeNote: (id: number) => void,
+
+    editNote: (note: Note) => void
 }
 
 export class NotesList extends React.Component<NotesListProps> {
@@ -18,7 +20,7 @@ export class NotesList extends React.Component<NotesListProps> {
         return (
             <div className="container">
                 <div className="row">
-                    {notes.map((note: Note) => <NotesListItem removeNote={this.props.removeNote} key={note.id} note={note} />)}
+                    {notes.map((note: Note) => <NotesListItem editNote={this.props.editNote} removeNote={this.props.removeNote} key={note.id} note={note} />)}
                 </div>
             </div>
         )

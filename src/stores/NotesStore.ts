@@ -1,5 +1,6 @@
 import { observable, action } from 'mobx';
-import { getNotes, createNote } from '../services/notesService';
+import { getNotes, createNote, removeNote, editNote } from '../services/notesService';
+import autobind from 'autobind-decorator';
 
 export default interface Note {
     id: number,
@@ -34,6 +35,25 @@ export class NotesStore {
             }
         } catch (e) {
             console.error(e)
+        }
+    }
+
+    @autobind
+    public async removeNote(id: number) {
+        try {
+            await removeNote(id);
+            this.notes = this.notes.filter(note => note.id !== id);
+        } catch (e) {
+            console.error(e)
+        }
+    }
+
+    @autobind
+    public async editNote(note: Note) {
+        try {
+            await editNote(note);
+        } catch (e) {
+            console.log(e);
         }
     }
 }
