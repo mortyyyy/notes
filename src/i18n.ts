@@ -6,7 +6,14 @@ i18n.init({
   resources: {
     en: {
       translation: {
-        "test": "hello world"
+        "addBtnText": "Add",
+        "newTitlePlaceholder": "Note Title"
+      }
+    },
+    ru: {
+      translation: {
+        "addBtnText": "Добавить",
+        "newTitlePlaceholder": "Заголовок заметки"
       }
     }
   }

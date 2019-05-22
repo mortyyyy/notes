@@ -8,7 +8,7 @@ export interface AddTextInputProps extends WithTranslation {
 }
 
 @observer
-class AddTextInput2 extends React.Component<AddTextInputProps> {
+class TextInput extends React.Component<AddTextInputProps> {
 
     @observable
     private noteTitle: string = '';
@@ -17,10 +17,16 @@ class AddTextInput2 extends React.Component<AddTextInputProps> {
         return (
             <form onSubmit={this.onSubmit}>
                 <div className="input-group mb-3">
-                    <input type="text" className="form-control" required onChange={this.handleInputChange} value={this.noteTitle} placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2" />
+                    <input type="text"
+                        className="form-control"
+                        required
+                        onChange={this.handleInputChange}
+                        value={this.noteTitle}
+                        placeholder={this.props.t('newTitlePlaceholder')}
+                    />
                     <div className="input-group-append ">
                         <button className="btn btn-success" type="submit">
-                            {this.props.t('test')}
+                            {this.props.t('addBtnText')}
                         </button>
                     </div>
                 </div>
@@ -41,4 +47,4 @@ class AddTextInput2 extends React.Component<AddTextInputProps> {
     }
 }
 
-export const AddTextInput = withTranslation()(AddTextInput2);
+export const AddTextInput = withTranslation()(TextInput);

@@ -87,7 +87,7 @@ export class NotesListItem extends React.Component<NotesListItemProps> {
 
     @autobind
     private textAreaOnInputPress(e: React.KeyboardEvent<HTMLTextAreaElement>) {
-        if (e.keyCode === 13 && !e.shiftKey) {
+        if (e.charCode === 13 && !e.shiftKey) {
             e.preventDefault();
             this.editNote();
             this.finishEdit();
