@@ -3,6 +3,7 @@ const webpack = require('webpack');
 module.exports = {
   entry: "./src/index.tsx",
   output: {
+    publicPath: '/',
     filename: "bundle.js",
     path: __dirname + "/dist"
   },
@@ -31,6 +32,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin()
   ],
   devServer: {
+    historyApiFallback: true,
     contentBase: './dist',
     hot: true
   }
