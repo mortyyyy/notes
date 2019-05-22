@@ -29,7 +29,7 @@ export class NotesForm extends React.Component<NotesFormProps> {
                 </div>
                 <div className="row">
                     <div className="col-md-6">
-                        <NotesList notes={this.props.notesStore.notes} />
+                        <NotesList removeNote={this.removeNote} notes={this.props.notesStore.notes} />
                     </div>
                 </div>
             </div>
