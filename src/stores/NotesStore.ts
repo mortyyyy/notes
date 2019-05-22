@@ -1,20 +1,12 @@
 import { observable, action } from 'mobx';
 import { getNotes, createNote, removeNote, editNote } from '../services/notesService';
 import autobind from 'autobind-decorator';
-
-export default interface Note {
-    id: number,
-
-    title: string
-}
+import Note from '../services/dto/note';
 
 export class NotesStore {
 
     @observable
     public notes: Note[] = [];
-
-    @observable
-    public loading: boolean = false;
 
 
     @action.bound

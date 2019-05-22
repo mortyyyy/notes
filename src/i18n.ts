@@ -7,13 +7,15 @@ i18n.init({
     en: {
       translation: {
         "addBtnText": "Add",
-        "newTitlePlaceholder": "Note Title"
+        "newTitlePlaceholder": "Note Title",
+        "pageNotFound": 'page does not exist'
       }
     },
     ru: {
       translation: {
         "addBtnText": "Добавить",
-        "newTitlePlaceholder": "Заголовок заметки"
+        "newTitlePlaceholder": "Заголовок заметки",
+        "pageNotFound": 'страница не найдена'
       }
     }
   }

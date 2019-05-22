@@ -17,7 +17,6 @@ export class NotesForm extends React.Component<NotesFormProps> {
 
     async componentDidMount() {
         this.props.notesStore.getNotesList();
-        console.log(123131)
     }
 
     public render() {

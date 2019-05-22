@@ -1,10 +1,10 @@
 import * as React from 'react';
-import Note from '../../../stores/NotesStore';
 import { RemoveIcon } from '../../RemoveIcon';
 import autobind from 'autobind-decorator';
 import { observer } from 'mobx-react';
 import { observable } from 'mobx';
 import { Loader } from '../../Loader';
+import Note from '../../../services/dto/note';
 
 export interface NotesListItemProps {
     note: Note,

@@ -11,7 +11,7 @@ import { I18nextProvider } from 'react-i18next';
 import 'bootstrap/scss/bootstrap.scss';
 
 
-const browserHistory = createBrowserHistory();
+const browserHistory = createBrowserHistory({basename: '/#'});
 
 const history = syncHistoryWithStore(browserHistory, stores.routing);
 
