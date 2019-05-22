@@ -20,7 +20,10 @@ export class NotesList extends React.Component<NotesListProps> {
         return (
             <div className="container">
                 <div className="row">
-                    {notes.map((note: Note) => <NotesListItem editNote={this.props.editNote} removeNote={this.props.removeNote} key={note.id} note={note} />)}
+                    {notes.map((note: Note) => <NotesListItem
+                        editNote={this.props.editNote}
+                        removeNote={this.props.removeNote}
+                        key={note.id} note={note} />)}
                 </div>
             </div>
         )

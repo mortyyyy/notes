@@ -27,7 +27,7 @@ export async function removeNote(id: number) {
 export async function editNote(note: Note) {
     return request<Note>({
         method: 'put',
-        url: `note/${note.id}`,
+        url: `notes/${note.id}`,
         data: { title: note.title }
     })
 }

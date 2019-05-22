@@ -2,13 +2,13 @@ import * as React from 'react';
 import { observer } from 'mobx-react';
 import { observable } from 'mobx';
 import autobind from 'autobind-decorator';
-
-export interface AddTextInputProps {
+import { withTranslation, WithTranslation } from 'react-i18next';
+export interface AddTextInputProps extends WithTranslation {
     onSubmit: (value: string) => void,
 }
 
 @observer
-export class AddTextInput extends React.Component<AddTextInputProps> {
+class AddTextInput2 extends React.Component<AddTextInputProps> {
 
     @observable
     private noteTitle: string = '';
@@ -19,7 +19,9 @@ export class AddTextInput extends React.Component<AddTextInputProps> {
                 <div className="input-group mb-3">
                     <input type="text" className="form-control" required onChange={this.handleInputChange} value={this.noteTitle} placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2" />
                     <div className="input-group-append ">
-                        <button className="btn btn-success" type="submit">Добавить</button>
+                        <button className="btn btn-success" type="submit">
+                            {this.props.t('test')}
+                        </button>
                     </div>
                 </div>
             </form>
@@ -38,3 +40,5 @@ export class AddTextInput extends React.Component<AddTextInputProps> {
         this.noteTitle = '';
     }
 }
+
+export const AddTextInput = withTranslation()(AddTextInput2);

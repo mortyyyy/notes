@@ -22,6 +22,9 @@ export class NotesListItem extends React.Component<NotesListItemProps> {
     @observable
     private loading: boolean = false;
 
+    @observable
+    private newTitle: string = null;
+
     render() {
         return (
             <div className="col-4 note-list-item">
@@ -37,12 +40,13 @@ export class NotesListItem extends React.Component<NotesListItemProps> {
     @autobind
     private startEdit() {
         this.editMode = true;
+        this.newTitle = this.props.note.title;
     }
 
     @autobind
     private finishEdit() {
-        this.editNote();
         this.editMode = false;
+        this.newTitle = null;
     }
 
     @autobind
@@ -52,13 +56,16 @@ export class NotesListItem extends React.Component<NotesListItemProps> {
                 {this.props.note.title}
             </div>
         }
-        return (<form onSubmit={this.editNote}>
+        return (<>
             <textarea
                 className="form-control"
                 onBlur={this.finishEdit}
+                onKeyPress={this.textAreaOnInputPress}
+                onChange={this.handleTitleChange}
+                value={this.newTitle}
                 autoFocus
             />
-        </form>)
+        </>)
     }
 
     @autobind
@@ -71,8 +78,24 @@ export class NotesListItem extends React.Component<NotesListItemProps> {
     @autobind
     private async editNote() {
         this.loading = true;
-        //await this.props.editNote(this.props.note);
-        this.finishEdit();
+        await this.props.editNote({
+            id: this.props.note.id,
+            title: this.newTitle,
+        });
         this.loading = false;
+    }
+
+    @autobind
+    private textAreaOnInputPress(e: React.KeyboardEvent<HTMLTextAreaElement>) {
+        if (e.keyCode === 13 && !e.shiftKey) {
+            e.preventDefault();
+            this.editNote();
+            this.finishEdit();
+        }
+    }
+
+    @autobind
+    private handleTitleChange(e: React.ChangeEvent<HTMLTextAreaElement>) {
+        this.newTitle = e.currentTarget.value;
     }
 }

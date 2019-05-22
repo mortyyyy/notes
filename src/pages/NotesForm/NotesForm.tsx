@@ -22,13 +22,13 @@ export class NotesForm extends React.Component<NotesFormProps> {
     public render() {
         return (
             <div className='container'>
-                <div className="row">
-                    <div className="col-md-6">
+                <div className="row justify-content-center">
+                    <div className="col-md-7">
                         <AddTextInput onSubmit={this.addNewNote} />
                     </div>
                 </div>
-                <div className="row">
-                    <div className="col-md-6">
+                <div className="row justify-content-center">
+                    <div className="col-md-7">
                         <NotesList
                             editNote={this.editNote}
                             removeNote={this.removeNote}

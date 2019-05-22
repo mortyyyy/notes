@@ -31,7 +31,12 @@ export class NotesStore {
         try {
             const newNote = await createNote(title);
             if (newNote) {
-                this.notes = [...this.notes, newNote];
+
+                const alreadyExist = this.notes.some(note => note.id === newNote.id);
+
+                if (!alreadyExist) {
+                    this.notes = [...this.notes, newNote];
+                }
             }
         } catch (e) {
             console.error(e)
@@ -49,9 +54,15 @@ export class NotesStore {
     }
 
     @autobind
-    public async editNote(note: Note) {
+    public async editNote(newNote: Note) {
         try {
-            await editNote(note);
+            await editNote(newNote);
+            this.notes = this.notes.map(note => {
+                if (note.id === newNote.id) {
+                    return newNote
+                }
+                return note;
+            })
         } catch (e) {
             console.log(e);
         }
