@@ -32,10 +32,15 @@ export async function request<TResult = any>(config: requestConfig): Promise<TRe
                 'Content-Type': 'application/json',
             }
         })
+
+        if (response.status >= 400) {
+            throw new Error(response.statusText);
+        }
+
         return response.json() as Promise<TResult>
 
     } catch (error) {
-        //throw new ApiError(error);
+        throw new Error(error);
     }
 }
 

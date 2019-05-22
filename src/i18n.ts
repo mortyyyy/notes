@@ -8,14 +8,16 @@ i18n.init({
       translation: {
         "addBtnText": "Add",
         "newTitlePlaceholder": "Note Title",
-        "pageNotFound": 'page does not exist'
+        "pageNotFound": 'page does not exist',
+        "commonErrorMessage": 'An error has occurred'
       }
     },
     ru: {
       translation: {
         "addBtnText": "Добавить",
         "newTitlePlaceholder": "Заголовок заметки",
-        "pageNotFound": 'страница не найдена'
+        "pageNotFound": 'Cтраница не найдена',
+        "commonErrorMessage": 'Произошла ошибка'
       }
     }
   }

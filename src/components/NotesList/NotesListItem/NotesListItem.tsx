@@ -71,18 +71,28 @@ export class NotesListItem extends React.Component<NotesListItemProps> {
     @autobind
     private async handleRemoveItemClick() {
         const { removeNote, note: { id } } = this.props;
-        this.loading = true;
-        await removeNote(id);
+        try {
+            this.loading = true;
+            await removeNote(id);
+        } catch (e) { }
+        finally {
+            this.loading = false
+        }
     }
 
     @autobind
     private async editNote() {
-        this.loading = true;
-        await this.props.editNote({
-            id: this.props.note.id,
-            title: this.newTitle,
-        });
-        this.loading = false;
+        try {
+            this.loading = true;
+            await this.props.editNote({
+                id: this.props.note.id,
+                title: this.newTitle,
+            });
+        } catch (e) {
+
+        } finally {
+            this.loading = false;
+        }
     }
 
     @autobind

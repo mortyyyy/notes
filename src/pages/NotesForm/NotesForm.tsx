@@ -5,6 +5,7 @@ import { observer, inject } from 'mobx-react';
 import { NotesStore } from '../../stores/NotesStore';
 import autobind from 'autobind-decorator';
 import Note from '../../services/dto/note';
+import { ValidationErrorMessage } from '../../components/ValidationErrorMessage';
 
 
 interface NotesFormProps {
@@ -25,6 +26,7 @@ export class NotesForm extends React.Component<NotesFormProps> {
                 <div className="row justify-content-center">
                     <div className="col-md-7">
                         <AddTextInput onSubmit={this.addNewNote} />
+                        <ValidationErrorMessage error={this.props.notesStore.error ? 'commonErrorMessage' : null} />
                     </div>
                 </div>
                 <div className="row justify-content-center">

@@ -16,7 +16,7 @@ class TextInput extends React.Component<AddTextInputProps> {
     render() {
         return (
             <form onSubmit={this.onSubmit}>
-                <div className="input-group mb-3">
+                <div className="input-group">
                     <input type="text"
                         className="form-control"
                         required
