@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Routing, routes } from '../Routing';
-import { LanguageSwitcher } from '../languageSwitcher';
+import { LanguageSwitcher } from '../LanguageSwitcher';
 
 export class App extends React.Component {
   render() {

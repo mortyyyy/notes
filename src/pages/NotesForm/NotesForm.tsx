@@ -47,16 +47,16 @@ export class NotesForm extends React.Component<NotesFormProps> {
 
     @autobind
     private addNewNote(title: string) {
-        this.props.notesStore.createNote(title);
+        return this.props.notesStore.createNote(title);
     }
 
     @autobind
     private removeNote(id: number) {
-        this.props.notesStore.removeNote(id)
+        return this.props.notesStore.removeNote(id)
     }
 
     @autobind
     private editNote(note: Note) {
-        this.props.notesStore.editNote(note)
+        return this.props.notesStore.editNote(note)
     }
 }

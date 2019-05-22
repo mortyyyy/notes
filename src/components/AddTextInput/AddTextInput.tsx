@@ -3,6 +3,7 @@ import { observer } from 'mobx-react';
 import { observable } from 'mobx';
 import autobind from 'autobind-decorator';
 import { withTranslation, WithTranslation } from 'react-i18next';
+
 export interface AddTextInputProps extends WithTranslation {
     onSubmit: (value: string) => void,
 }
