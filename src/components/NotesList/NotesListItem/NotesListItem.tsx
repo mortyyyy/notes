@@ -8,9 +8,9 @@ import Note from '../../../services/dto/note';
 
 export interface NotesListItemProps {
     note: Note,
-    removeNote: (id: number) => void,
+    removeNote: (id: number) => Promise<void>,
 
-    editNote?: (note: Note) => void
+    editNote?: (note: Note) => Promise<void>
 }
 
 const COLORS = ['pink', 'yellow', 'green', 'blue', 'red', 'pale-yellow']

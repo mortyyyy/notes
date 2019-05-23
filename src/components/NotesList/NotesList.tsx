@@ -4,9 +4,9 @@ import { NotesListItem } from './NotesListItem';
 
 export interface NotesListProps {
     notes: Note[],
-    removeNote: (id: number) => void,
+    removeNote: (id: number) => Promise<void>,
 
-    editNote: (note: Note) => void
+    editNote: (note: Note) => Promise<void>
 }
 
 export class NotesList extends React.Component<NotesListProps> {

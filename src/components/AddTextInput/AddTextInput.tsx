@@ -5,7 +5,7 @@ import autobind from 'autobind-decorator';
 import { withTranslation, WithTranslation } from 'react-i18next';
 
 export interface AddTextInputProps extends WithTranslation {
-    onSubmit: (value: string) => void,
+    onSubmit: (value: string) => Promise<void>,
 }
 
 @observer

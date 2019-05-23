@@ -9,7 +9,8 @@ i18n.init({
         "addBtnText": "Add",
         "newTitlePlaceholder": "Note Title",
         "pageNotFound": 'page does not exist',
-        "commonErrorMessage": 'An error has occurred'
+        "commonErrorMessage": 'An error has occurred',
+        "formTitle": 'Notes'
       }
     },
     ru: {
@@ -17,7 +18,8 @@ i18n.init({
         "addBtnText": "Добавить",
         "newTitlePlaceholder": "Заголовок заметки",
         "pageNotFound": 'Cтраница не найдена',
-        "commonErrorMessage": 'Произошла ошибка'
+        "commonErrorMessage": 'Произошла ошибка',
+        "formTitle": 'Заметки'
       }
     }
   }

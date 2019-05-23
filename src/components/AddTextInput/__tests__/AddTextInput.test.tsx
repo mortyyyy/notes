@@ -5,6 +5,7 @@ import { mount } from 'enzyme';
 describe('<AddTextInput>', () => {
     let wrapper: any;
     beforeEach(() => {
+        //@ts-ignore
         wrapper = mount(<AddTextInput onSubmit={() => { }} />)
     })
     it('should render notesform', () => {
