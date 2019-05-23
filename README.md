@@ -12,3 +12,8 @@
     ```
     http://localhost:9000/
     ```
+4. Running tests
+    ```
+    npm run test    
+    ```
+    
