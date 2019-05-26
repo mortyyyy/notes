@@ -1,6 +1,5 @@
 import { observable, action } from 'mobx';
 import { getNotes, createNote, removeNote, editNote } from '../services/notesService';
-import autobind from 'autobind-decorator';
 import Note from '../services/dto/note';
 
 export class NotesStore {
@@ -40,7 +39,7 @@ export class NotesStore {
         }
     }
 
-    @autobind
+    @action.bound
     public async removeNote(id: number) {
         try {
             this.error = false;
@@ -54,7 +53,7 @@ export class NotesStore {
         }
     }
 
-    @autobind
+    @action.bound
     public async editNote(newNote: Note) {
         try {
             this.error = false;
